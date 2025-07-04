@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEU UMS Clone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left-panel {
+      background-color: #1b2e4b;
+      color: white;
+      flex: 1;
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left-panel h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .left-panel p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #cdd6f0;
+    }
+
+    .right-panel {
+      flex: 1;
+      background-color: #ffffff;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .login-box img {
+      width: 80px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1b2e4b;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1b2e4b;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h1>Welcome to SEU UMS</h1>
+      <p>
+        UMS assists all the members of Southeast University to do a variety of academic and co-curricular tasks
+        with well-designed dashboards packed with gorgeous and in-depth modules. Making this university paperless
+        is our key objective. Enjoy your journey with Southeast University.
+      </p>
+    </div>
+    <div class="right-panel">
+      <div class="login-box">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e7/Southeast_University_%28Bangladesh%29_monogram.svg/1200px-Southeast_University_%28Bangladesh%29_monogram.svg.png" alt="SEU Logo">
+        <h2>Sign in</h2>
+        <form id="loginForm">
+          <input type="text" id="userId" placeholder="Username/Student Code" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <button type="submit">Sign in</button>
+        </form>
+        <div id="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const id = document.getElementById('userId').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const resultDiv = document.getElementById('result');
+
+      if (id === '2024000125' && pass === 'kawsar1234') {
+        resultDiv.innerHTML = `✅ Your name is <strong>Md Kawsar Ali</strong>.<br>🎓 1st Semester Result: <strong>3.25</strong>`;
+        resultDiv.style.color = 'green';
+      } else {
+        resultDiv.innerHTML = '❌ Invalid ID or Password';
+        resultDiv.style.color = 'red';
+      }
+    });
+  </script>
+</body>
+</html>
